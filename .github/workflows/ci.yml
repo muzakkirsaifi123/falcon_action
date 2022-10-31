@@ -17,8 +17,8 @@ jobs:
 
     - name: Docker Build and run
       run: |
-        docker build . -t scottyfullstack/falcon-look-app
-        docker run -dit -p 8000:8000 scottyfullstack/falcon-look-app
+        docker build . -t muzakkirsaifi/falcon-look-app
+        docker run -dit -p 8000:8000 muzakkirsaifi/falcon-look-app
 
     - name: Test Code
       run: coverage run -m pytest tests/
@@ -31,7 +31,7 @@ jobs:
       uses: anchore/scan-action@v3
       id: scan
       with:
-        image: "scottyfullstack/falcon-look-app"
+        image: "muzakkirsaifi/falcon-look-app"
 
     - name: upload Anchore scan SARIF report
       uses: github/codeql-action/upload-sarif@v2
@@ -59,4 +59,4 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: scottyfullstack/falcon-look-app:latest
+        tags: muzakkirsaifi/falcon-look-app:latest
